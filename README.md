@@ -6,5 +6,5 @@ Android Application which provides information about air quality in Bucharest. B
 
 ## Memes:
 *We do love memes*
-![Meme 1](Meme1.jpeg)
-![Meme 2](Meme2.jpeg)
+![Meme 1](Meme-1.jpeg)
+![Meme 2](Meme-2.jpeg)
