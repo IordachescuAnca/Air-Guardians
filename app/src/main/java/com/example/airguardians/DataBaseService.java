@@ -36,6 +36,6 @@ public class DataBaseService extends SQLiteOpenHelper {
     public boolean checkEmail(String email){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from user where email=?", new String[]{email});
-        return cursor.getColumnCount() <= 0;
+        return cursor.getCount() <= 0;
     }
 }

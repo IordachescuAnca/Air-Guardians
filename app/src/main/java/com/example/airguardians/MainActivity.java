@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     if (dataPassword.compareTo(dataConfirmedPassword) == 0){
                         boolean canInsert = db.checkEmail(dataEmail);
+                        System.out.println(canInsert);
                         if (canInsert){
                             boolean ID = db.insertData(dataEmail, dataPassword);
                             if(ID){
