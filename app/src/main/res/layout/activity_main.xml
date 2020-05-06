@@ -5,36 +5,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity" android:id="@+id/register">
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/password" android:layout_marginTop="323dp" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginLeft="92dp" android:layout_marginStart="92dp"
-            android:layout_alignParentLeft="true" android:hint="Password"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/cpassword" android:layout_marginTop="446dp" android:layout_alignParentTop="true"
-            android:hint="Confirm password" android:layout_alignParentStart="true" android:layout_marginLeft="95dp"
-            android:layout_marginStart="95dp" android:layout_alignParentLeft="true"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:ems="10"
-            android:id="@+id/email" android:layout_marginTop="198dp" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginLeft="93dp" android:layout_marginStart="93dp"
-            android:layout_alignParentLeft="true" android:hint="Email"/>
-    <Button
-            android:text="Register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button" android:layout_marginTop="536dp"
-            android:layout_alignParentTop="true" android:layout_alignParentStart="true"
-            android:layout_marginLeft="148dp"
-            android:layout_marginStart="148dp" android:layout_alignParentLeft="true"/>
+        tools:context=".MainActivity" android:id="@+id/register"
+        android:background="@drawable/background">
+
+
+
 </RelativeLayout>
