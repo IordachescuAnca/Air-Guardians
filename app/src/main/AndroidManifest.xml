@@ -9,11 +9,20 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".LogInActivity">
-        </activity>
+
         <activity
-                android:name=".MainActivity"
-                android:theme = "@style/AppTheme.FullScreen">
+                android:name=".Register"
+                android:theme="@style/AppTheme.FullScreen">
+        </activity>
+
+        <activity
+                android:name=".LogInActivity"
+                android:theme="@style/AppTheme.FullScreen">
+        </activity>
+
+        <activity
+                 android:name=".MainActivity"
+                 android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
