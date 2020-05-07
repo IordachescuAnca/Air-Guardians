@@ -5,9 +5,61 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity" android:id="@+id/register"
+        tools:context=".MainActivity" android:id="@+id/welcome"
         android:background="@drawable/background">
 
-
+    <TextView
+            android:id="@+id/not_member"
+            android:text="@string/you_are_not_a_member"
+            android:textColor="@color/black"
+            android:layout_width="163dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="20dp"
+            android:layout_marginRight="216dp" android:layout_marginEnd="216dp"
+            android:layout_marginLeft="32dp" android:layout_marginStart="32dp" />
+    <TextView
+            android:text="@string/register"
+            android:textColor="@color/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/register" android:layout_alignParentBottom="true"
+            android:layout_marginRight="158dp" android:layout_marginEnd="158dp"
+            android:layout_marginLeft="194dp" android:layout_marginStart="194dp"
+            android:layout_marginTop="678dp"
+            android:layout_alignParentTop="true"/>
+    <TextView
+            android:text="@string/welcome"
+            android:textSize="@android:dimen/app_icon_size"
+            android:textColor="@color/white"
+            android:layout_width="246dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/welcome_text" android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="131dp" android:layout_marginEnd="131dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="610dp"
+            android:layout_alignParentStart="true" android:layout_marginLeft="34dp" android:layout_marginStart="34dp"
+            android:layout_alignParentLeft="true" android:layout_marginTop="59dp" android:layout_alignParentTop="true"/>
+    <TextView
+            android:text="@string/nice_to_see_you_again"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:id="@+id/nice" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="554dp" android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="106dp" android:layout_marginEnd="106dp"
+            android:layout_alignParentStart="true" android:layout_marginLeft="34dp" android:layout_marginStart="34dp"
+            android:layout_alignParentLeft="true" android:layout_marginTop="140dp"
+            android:layout_alignParentTop="true"/>
+    <Button
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:background="@drawable/button_login_welcome"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_login" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="463dp" android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="222dp" android:layout_marginEnd="222dp"
+            android:layout_alignParentStart="true" android:layout_marginLeft="48dp" android:layout_marginStart="48dp"
+            android:layout_alignParentLeft="true" android:layout_marginTop="220dp"
+            android:layout_alignParentTop="true"/>
 
 </RelativeLayout>
