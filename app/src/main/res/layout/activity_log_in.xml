@@ -5,41 +5,74 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LogInActivity">
+        tools:context=".LogInActivity"
+        android:id="@+id/log_in_activity"
+        android:background="@drawable/background_register">
+
 
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:layout_width="233dp"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
             android:ems="10"
-            android:layout_marginTop="156dp" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginLeft="86dp" android:layout_marginStart="86dp"
-            android:layout_alignParentLeft="true" android:id="@+id/email_login" android:hint="Email"/>
+            android:id="@+id/email_login"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/input_background"
+            android:layout_marginLeft="104dp"
+            android:layout_marginStart="104dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_marginTop="60dp"
+            android:autofillHints=""
+            tools:ignore="LabelFor" android:layout_alignParentStart="true" android:layout_alignParentLeft="true"/>
     <EditText
+            android:layout_width="233dp"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password_login"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/input_background"
+            android:layout_marginLeft="104dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="150dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:autofillHints=""
+            tools:ignore="LabelFor" android:layout_alignParentStart="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
+    <Button
+            android:text="@string/login"
+            android:layout_width="102dp"
+            android:layout_height="41dp"
+            android:id="@+id/button"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_register_back"
+            app:layout_constraintStart_toStartOf="@id/password_login"
+            android:layout_marginLeft="158dp"
+            android:layout_marginStart="158dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            app:layout_constraintHorizontal_bias="0.25" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="425dp"/>
+    <TextView
+            android:text="@string/don_t_have_an_account"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dont" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="33dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="216dp" android:layout_marginEnd="216dp"/>
+    <TextView
+            android:text="@string/register"
+            android:textColor="@color/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/password_login" android:layout_marginTop="330dp" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginLeft="86dp" android:layout_marginStart="86dp"
-            android:layout_alignParentLeft="true" android:hint="Password"/>
-    <Button
-            android:text="Log In"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button2" android:layout_marginTop="457dp"
-            android:layout_alignParentTop="true" android:layout_alignParentStart="true"
-            android:layout_marginLeft="120dp"
-            android:layout_marginStart="120dp" android:layout_alignParentLeft="true"/>
-    <TextView
-            android:text="Don't have an account?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView" android:layout_alignParentStart="true"
-            android:layout_marginLeft="37dp" android:layout_marginStart="37dp" android:layout_alignParentLeft="true"
-            android:layout_marginTop="608dp" android:layout_alignParentTop="true"/>
-    <Button
-            android:text="Register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button3" android:layout_alignParentStart="true"
-            android:layout_marginLeft="44dp" android:layout_marginStart="44dp" android:layout_alignParentLeft="true"
-            android:layout_marginTop="649dp" android:layout_alignParentTop="true"/>
+            android:id="@+id/text_register" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="33dp" android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="149dp" android:layout_marginEnd="149dp"
+            tools:ignore="RelativeOverlap"/>
+
+
 </RelativeLayout>

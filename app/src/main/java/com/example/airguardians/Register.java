@@ -1,11 +1,14 @@
 package com.example.airguardians;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.time.Instant;
 
 public class Register extends AppCompatActivity {
 
@@ -26,6 +29,8 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Registered succesfully!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Register.this, LogInActivity.class);
+                startActivity(intent);
             }
         });
     }

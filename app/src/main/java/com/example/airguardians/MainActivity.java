@@ -12,6 +12,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     TextView textRegister;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
+        button = (Button)findViewById(R.id.button_login);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LogInActivity.class);
                 startActivity(intent);
             }
         });
