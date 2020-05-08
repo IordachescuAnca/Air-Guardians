@@ -2,10 +2,14 @@
     <string name="app_name">Air Guardians</string>
     <string name="you_are_not_a_member">You are not a member?</string>
     <string name="register">Register</string>
-    <string name="welcome">Welcome!</string>
-    <string name="nice_to_see_you_again">Nice to see you again!</string>
+    <string name="welcome">Air Guardians</string>
+    <string name="nice_to_see_you_again">Be fair,  do not pollute the air!</string>
     <string name="login">Login</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="map">Map</string>
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+    <string name="information">Information</string>
+    <string name="log_out">Log Out</string>
 
 </resources>
