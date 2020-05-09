@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/nav_home1"
+            android:icon="@drawable/ic_home_black_24dp" android:title="@string/home"/>
+    <item
+            android:id="@+id/favourites"
+            android:icon="@drawable/ic_favorite_black_24dp" android:title="@string/favorites"/>
+    <item
+            android:id="@+id/info"
+            android:icon="@drawable/ic_info_outline_black_24dp" android:title="@string/information"/>
+    <item
+            android:id="@+id/exit"
+            android:icon="@drawable/ic_exit_to_app_black_24dp" android:title="@string/log_out"/>
+
+</menu>

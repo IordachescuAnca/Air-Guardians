@@ -14,27 +14,27 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".Home">
+        </activity>
+
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="AIzaSyB5Bgs6pNlY4O21d3qnuqKg-nF89lYLFZs"/>
-
         <meta-data
                 android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version" />
+                android:value="@integer/google_play_services_version"/>
 
         <activity
                 android:name=".Register"
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
-
         <activity
                 android:name=".LogInActivity"
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
-
         <activity
-                 android:name=".MainActivity"
-                 android:theme="@style/AppTheme.FullScreen">
+                android:name=".MainActivity"
+                android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -43,7 +43,6 @@
         </activity>
         <activity
                 android:name=".Map"
-
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
     </application>
