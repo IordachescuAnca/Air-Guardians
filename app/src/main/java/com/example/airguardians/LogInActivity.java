@@ -12,6 +12,7 @@ public class LogInActivity extends AppCompatActivity {
 
     TextView registerText;
     Button backButton;
+    Button toHomeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,15 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        toHomeButton = (Button)findViewById(R.id.button);
+        toHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LogInActivity.this, Home.class);
                 startActivity(intent);
             }
         });

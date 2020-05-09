@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textRegister;
     Button button;
+    Button buttonHome;
     private static final String TAG = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST = 9001;
 
@@ -54,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        buttonHome = (Button) findViewById(R.id.buttonHome);
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, InformationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public boolean isServicesOK() {
