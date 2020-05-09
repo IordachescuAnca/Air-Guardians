@@ -11,5 +11,9 @@
     <string name="favorites">Favorites</string>
     <string name="information">Information</string>
     <string name="log_out">Log Out</string>
+    <string name="button">Button</string>
+    <string name="back">Back</string>
+    <string name="hello_there">Hello There!</string>
+    <string name="join_our_community">Join our community</string>
 
 </resources>

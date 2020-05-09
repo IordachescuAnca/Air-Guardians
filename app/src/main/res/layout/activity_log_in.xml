@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".LogInActivity"
         android:id="@+id/log_in_activity"
-        android:background="@drawable/background_register">
+        android:background="@drawable/background_new">
 
 
     <EditText
@@ -18,13 +18,14 @@
             android:id="@+id/email_login"
             app:layout_constraintStart_toStartOf="parent"
             android:background="@drawable/input_background"
-            android:layout_marginLeft="104dp"
-            android:layout_marginStart="104dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="110dp"
+            android:layout_marginStart="110dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="104dp"
             android:layout_marginRight="104dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="169dp"
             android:autofillHints=""
-            tools:ignore="LabelFor" android:layout_alignParentStart="true" android:layout_alignParentLeft="true"/>
+            tools:ignore="LabelFor" android:layout_alignParentStart="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
     <EditText
             android:layout_width="233dp"
             android:layout_height="50dp"
@@ -33,9 +34,9 @@
             android:id="@+id/password_login"
             app:layout_constraintStart_toStartOf="parent"
             android:background="@drawable/input_background"
-            android:layout_marginLeft="104dp"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginLeft="110dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="273dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="104dp"
             android:layout_marginRight="104dp"
@@ -55,7 +56,7 @@
             android:layout_marginEnd="167dp"
             android:layout_marginRight="167dp"
             app:layout_constraintHorizontal_bias="0.25" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="425dp"/>
+            android:layout_marginBottom="288dp"/>
     <TextView
             android:text="@string/don_t_have_an_account"
             android:layout_width="168dp"
@@ -73,6 +74,19 @@
             android:layout_marginBottom="33dp" android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" android:layout_marginRight="149dp" android:layout_marginEnd="149dp"
             tools:ignore="RelativeOverlap"/>
+    <Button
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content" android:id="@+id/backButton" android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="353dp" android:layout_marginEnd="353dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="646dp"/>
+    <TextView
+            android:text="@string/hello_there"
+            android:textSize="30dp"
+            android:layout_width="167dp"
+            android:layout_height="47dp" android:id="@+id/textView" android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" android:layout_marginRight="126dp" android:layout_marginEnd="126dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="616dp"/>
 
 
 </RelativeLayout>

@@ -14,8 +14,10 @@ public class Register extends AppCompatActivity {
 
     EditText email;
     EditText password;
-    EditText confirm_password;
-    Button register_button;
+    EditText confirmPassword;
+    Button registerButton;
+    Button backButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +25,22 @@ public class Register extends AppCompatActivity {
 
         email = (EditText)findViewById(R.id.email_register);
         password = (EditText)findViewById(R.id.password_register);
-        confirm_password = (EditText)findViewById(R.id.confirm_password_register);
-        register_button = (Button)findViewById(R.id.button_register);
-        register_button.setOnClickListener(new View.OnClickListener() {
+        confirmPassword = (EditText)findViewById(R.id.confirm_password_register);
+        registerButton = (Button)findViewById(R.id.button_register);
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Registered succesfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Register.this, LogInActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton = (Button)findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, MainActivity.class);
                 startActivity(intent);
             }
         });

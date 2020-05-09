@@ -10,17 +10,28 @@ import android.os.Bundle;
 
 public class LogInActivity extends AppCompatActivity {
 
-    TextView register_text;
+    TextView registerText;
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-        register_text = (TextView)findViewById(R.id.text_register);
-        register_text.setOnClickListener(new View.OnClickListener() {
+
+        registerText = (TextView)findViewById(R.id.text_register);
+        registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LogInActivity.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton = (Button)findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
