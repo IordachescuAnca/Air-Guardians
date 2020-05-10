@@ -1,24 +1,40 @@
 package com.example.airguardians;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
+import android.net.wifi.hotspot2.pps.HomeSp;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Home extends AppCompatActivity {
-    /*private static final String TAG = "Map";
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+
+public class Home extends AppCompatActivity implements OnMapReadyCallback {
+
+
+    private static final String TAG = "Map";
 
     private GoogleMap mMap;
 
@@ -40,16 +56,19 @@ public class Home extends AppCompatActivity {
         Marker zone2 = mMap.addMarker(new MarkerOptions().position(coordGrozavesti).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_orange)).alpha(0.7f));
         Marker zone3 = mMap.addMarker(new MarkerOptions().position(coordRegie).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_yellow)).alpha(0.7f));
         Marker zone4 = mMap.addMarker(new MarkerOptions().position(coordAnca).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_green)).alpha(0.7f));
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
-        //getLocationPermission();
+
+
+        getLocationPermission();
+
     }
 
-    /*private void initMap() {
+    private void initMap() {
         Log.d(TAG, "initMap: initializint map");
         final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
@@ -111,5 +130,7 @@ public class Home extends AppCompatActivity {
                 }
             }
         }
-    }*/
+    }
+
+
 }
