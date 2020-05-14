@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.airguardians">
+          package="com.example.air_guardiansproject">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
@@ -14,24 +16,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".Home"
+                  android:theme="@style/AppTheme.FullScreen">
+        </activity>
         <activity android:name=".InformationActivity">
-        </activity>
-        <activity android:name=".Home">
-        </activity>
-
-        <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyB5Bgs6pNlY4O21d3qnuqKg-nF89lYLFZs"/>
-        <meta-data
-                android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version"/>
-
-        <activity
-                android:name=".Register"
-                android:theme="@style/AppTheme.FullScreen">
         </activity>
         <activity
                 android:name=".LogInActivity"
+                android:theme="@style/AppTheme.FullScreen">
+        </activity>
+        <activity
+                android:name=".Register"
                 android:theme="@style/AppTheme.FullScreen">
         </activity>
         <activity
@@ -42,10 +37,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity
-                android:name=".Map"
-                android:theme="@style/AppTheme.FullScreen">
         </activity>
     </application>
 

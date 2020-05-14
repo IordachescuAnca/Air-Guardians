@@ -1,2 +1,2 @@
-include ':app'
-rootProject.name='Air Guardians'
+rootProject.name='Air-Guardians Project'
+include ':app', ':mysql-connector-java-5.1.47'
