@@ -7,7 +7,32 @@
         android:layout_height="match_parent"
         tools:context=".Home">
 
-    <FrameLayout
+  <FrameLayout
+          android:id="@+id/fragment_container"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_above="@id/bottom_navigation">
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/map"
+              tools:context=".MapsActivity"
+              android:name="com.google.android.gms.maps.SupportMapFragment"/>
+  </FrameLayout>
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/colorPrimary"
+          android:id="@+id/bottom_navigation"
+          app:itemBackground="@color/colorPrimary"
+          app:itemTextColor="@drawable/selector"
+          app:itemIconTint="@drawable/selector"
+          app:menu="@menu/bottom_navigation_bar"
+          android:layout_alignParentBottom="true">
+  </com.google.android.material.bottomnavigation.BottomNavigationView>
+  <!--  <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -19,14 +44,6 @@
             android:background="@color/white"
             app:menu="@menu/bottom_navigation_bar"
             android:id="@+id/bottom_navigation">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:id="@+id/map"
-              tools:context=".MapsActivity"
-              android:name="com.google.android.gms.maps.SupportMapFragment" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView> -->
 
 </RelativeLayout>

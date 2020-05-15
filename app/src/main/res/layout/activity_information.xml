@@ -5,8 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        tools:context=".MainActivity">
+        android:background="@drawable/back_other_activities"
+        tools:context=".InformationActivity">
 
     <LinearLayout
             android:orientation="vertical"
@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                    android:id="@+id/team"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -70,7 +71,7 @@
                         android:layout_height="match_parent">
 
                     <ImageView
-                            app:srcCompat="@drawable/ic_android_black_24dp"
+                            android:background="@drawable/team"
                             android:layout_width="80dp"
                             android:layout_height="80dp"/>
                     <TextView
@@ -82,9 +83,10 @@
                             android:layout_height="wrap_content"/>
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                    android:id="@+id/motivation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -101,7 +103,7 @@
                         android:layout_height="match_parent">
 
                     <ImageView
-                            app:srcCompat="@drawable/ic_android_black_24dp"
+                            app:srcCompat="@drawable/motivation"
                             android:layout_width="80dp"
                             android:layout_height="80dp"/>
                     <TextView
@@ -113,8 +115,8 @@
                             android:layout_height="wrap_content"/>
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -178,6 +180,7 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                    android:id="@+id/technology"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -194,7 +197,7 @@
                         android:layout_height="match_parent">
 
                     <ImageView
-                            app:srcCompat="@drawable/ic_android_black_24dp"
+                            app:srcCompat="@drawable/technology"
                             android:layout_width="80dp"
                             android:layout_height="80dp"/>
                     <TextView
@@ -206,8 +209,8 @@
                             android:layout_height="wrap_content"/>
 
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -240,7 +243,17 @@
 
             </androidx.cardview.widget.CardView>
         </GridLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:id="@+id/bottom_navigation"
+                app:itemBackground="@color/colorPrimary"
+                app:itemTextColor="@drawable/selector"
+                app:itemIconTint="@drawable/selector"
+                app:menu="@menu/bottom_navigation_bar"
+                android:layout_alignParentBottom="true">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
     </LinearLayout>
-
-
 </ScrollView>

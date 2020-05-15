@@ -9,7 +9,6 @@
         android:id="@+id/welcome"
         android:background="@drawable/background">
 
-
     <TextView
             android:id="@+id/not_member"
             android:text="@string/you_are_not_a_member"
@@ -75,7 +74,7 @@
             android:layout_marginStart="80dp" android:layout_marginTop="60dp"
             app:layout_constraintTop_toBottomOf="@+id/nice"/>
 
-    <Button
+ <!--   <Button
             android:text="@string/map"
             android:textColor="@color/white"
             android:background="@drawable/button_login_welcome"
@@ -98,6 +97,6 @@
             android:id="@+id/buttonHome"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/button_map" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="80dp" android:layout_marginStart="80dp"/>
+            android:layout_marginLeft="80dp" android:layout_marginStart="80dp"/> -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

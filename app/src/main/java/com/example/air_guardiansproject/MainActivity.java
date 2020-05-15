@@ -64,6 +64,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        button = (Button) findViewById(R.id.buttonHome);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isServicesOK()) {
+                    Intent intent = new Intent(MainActivity.this, InformationActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     public boolean isServicesOK() {

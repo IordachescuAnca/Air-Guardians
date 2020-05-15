@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="350dp"
+        android:layout_height="475dp"
+        android:background="@color/back_popup"
+        android:layout_gravity="center"
+>
+
+ <TextView
+         android:text="Our motivation"
+         android:layout_width="124dp"
+         android:layout_height="25dp" android:id="@+id/textView2"
+         android:layout_marginTop="35dp"
+         app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+         android:layout_marginLeft="119dp" android:layout_marginStart="119dp"/>
+ <!--   <TextView
+            android:id="@+id/txtclose_motivation"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="@color/white"
+            android:text="X"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:gravity="center" tools:ignore="MissingConstraints"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="5dp" android:layout_marginRight="5dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="5dp">
+    </TextView> -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

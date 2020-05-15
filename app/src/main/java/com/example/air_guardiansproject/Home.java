@@ -3,6 +3,7 @@ package com.example.air_guardiansproject;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +13,8 @@ import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +30,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 
@@ -52,8 +57,10 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
     private final LatLng coordRegie = new LatLng(44.447564, 26.0500859);
     private final float DEFAULT_ZOOM = 11.5f;
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         Toast.makeText(this, "Map is ready", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
@@ -61,6 +68,7 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -97,7 +105,6 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -106,7 +113,35 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
         setContentView(R.layout.activity_home);
         getLocationPermission();
 
+        //Init and Assign Variable
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        //Set Home Selected
+        bottomNavigationView.setSelectedItemId(R.id.nav_home1);
+
+        //Perform ItemSelectedListener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.info:
+                        startActivity(new Intent(getApplicationContext(), InformationActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.favourites:
+                        startActivity(new Intent(getApplicationContext(), FavouritesActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.exit:
+                        startActivity(new Intent(getApplicationContext(), LogInActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.nav_home1:
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void initMap() {
@@ -115,8 +150,6 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
 
         assert mapFragment != null;
         mapFragment.getMapAsync(Home.this);
-
-
     }
 
     private void moveCamera(LatLng latLng, float zoom) {
