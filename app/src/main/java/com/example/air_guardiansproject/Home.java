@@ -72,9 +72,9 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://mds-mysql2020.mysql.database.azure.com:3306/mydb";
-            String user = "root_anca@mds-mysql2020";
-            String pass = "ParolaMySQL2020";
+            String url = "jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb";
+            String user = "mdsproject@mds-project";
+            String pass = "qwer1234!@#$";
             Connection dbConn = getConnection(url, user, pass);
 
             try {
