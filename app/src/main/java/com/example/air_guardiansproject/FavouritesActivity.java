@@ -109,7 +109,7 @@ public class FavouritesActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.info:
-                        startActivity(new Intent(getApplicationContext(), InformationActivity.class));
+                        startActivity(new Intent(getApplicationContext(), InformationActivity2.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home1:
