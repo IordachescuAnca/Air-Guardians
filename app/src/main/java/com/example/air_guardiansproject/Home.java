@@ -2,9 +2,10 @@ package com.example.air_guardiansproject;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -13,11 +14,9 @@ import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.StrictMode;
 import android.util.Log;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,10 +29,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
+import org.w3c.dom.Text;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -43,32 +41,31 @@ import java.sql.SQLException;
 
 import static java.sql.DriverManager.getConnection;
 
-public class Home extends AppCompatActivity implements OnMapReadyCallback {
+public class Home extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
 
     private static final String TAG = "Map";
 
     private GoogleMap mMap;
 
-    private final LatLng coordBucharest = new LatLng(44.435180, 26.102720);
-    private final LatLng coordUniversitate = new LatLng(44.43513, 26.0988712);
-    private final LatLng coordGrozavesti = new LatLng(44.4425814, 26.0573709);
-    private final LatLng coordAnca = new LatLng(44.4120789, 26.1818769);
-    private final LatLng coordRegie = new LatLng(44.447564, 26.0500859);
-    private final float DEFAULT_ZOOM = 11.5f;
+    private final LatLng coordRomania = new LatLng(45.658, 25.6012);
+    private final float DEFAULT_ZOOM = 6f;
+    private Marker mMarker;
+
 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         Toast.makeText(this, "Map is ready", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
-        moveCamera(coordBucharest, DEFAULT_ZOOM);
+        mMap.setOnMarkerClickListener(this);
+        moveCamera(coordRomania, DEFAULT_ZOOM);
+
+
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -79,21 +76,39 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
 
             try {
                 Statement stmt = (Statement) dbConn.createStatement();
-                ResultSet res = stmt.executeQuery("Select * from locations");
+                ResultSet res = stmt.executeQuery("Select * from oras_date");
                 boolean emailExists = false;
                 while (res.next()) {
-                    float Lat = res.getFloat("latitudine");
-                    float Long = res.getFloat("longitudine");
-                    int polution = res.getInt("level_polution");
+                    float Lat = res.getFloat("Latitudine");
+                    float Long = res.getFloat("Longitudine");
+                    int polution = res.getInt("Aqi");
+                    String oras = res.getString("Oras");
                     LatLng coord = new LatLng(Lat, Long);
                     if (polution <= 25)
-                        mMap.addMarker(new MarkerOptions().position(coord).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_green)).alpha(0.6f));
+                        mMarker = mMap.addMarker(new MarkerOptions().
+                                position(coord).
+                                title(oras).
+                                icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_green)).
+                                alpha(0.6f));
                     else if (polution <= 50)
-                        mMap.addMarker(new MarkerOptions().position(coord).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_yellow)).alpha(0.6f));
+                        mMarker = mMap.addMarker(new MarkerOptions().
+                                position(coord).
+                                title(oras).
+                                icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_yellow)).
+                                alpha(0.6f));
                     else if (polution <= 75)
-                        mMap.addMarker(new MarkerOptions().position(coord).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_orange)).alpha(0.6f));
+                        mMarker = mMap.addMarker(new MarkerOptions().
+                                position(coord).
+                                title(oras).
+                                icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_orange)).
+                                alpha(0.6f));
                     else if (polution <= 100)
-                        mMap.addMarker(new MarkerOptions().position(coord).icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_red)).alpha(0.6f));
+                        mMarker = mMap.addMarker(new MarkerOptions().
+                                position(coord).
+                                title(oras).
+                                icon(BitmapDescriptorFactory.fromResource(R.drawable.zone_red)).
+                                alpha(0.6f));
+
 
                 }
             } catch (SQLException e) {
@@ -105,44 +120,64 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getLocationPermission();
+    }
 
-        //Init and Assign Variable
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+        View myView = getLayoutInflater().inflate(R.layout.popup_favorite, null);
 
-        //Set Home Selected
-        bottomNavigationView.setSelectedItemId(R.id.nav_home1);
 
-        //Perform ItemSelectedListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        ImageView heartImg;
+        heartImg = myView.findViewById(R.id.heartImg);
+
+
+        TextView textOras;
+        textOras = myView.findViewById(R.id.titleTv);
+
+        textOras.setText(marker.getTitle());
+        if(User.favorites.contains(marker.getTitle())) {
+            heartImg.setImageResource(R.drawable.ic_favorite_black_24dp);
+        }
+        else{
+            heartImg.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+        }
+
+        heartImg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.info:
-                        startActivity(new Intent(getApplicationContext(), InformationActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.favourites:
-                        startActivity(new Intent(getApplicationContext(), FavouritesActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.exit:
-                        startActivity(new Intent(getApplicationContext(), LogInActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.nav_home1:
-                        return true;
+            public void onClick(View v) {
+                if(User.favorites.contains(marker.getTitle())) {
+                    Toast.makeText(Home.this, "Removed from favorites", Toast.LENGTH_SHORT).show();
+                    User.removeFromFavorites(marker.getTitle());
+                    heartImg.setImageResource(R.drawable.ic_favorite_border_black_24dp);
                 }
-                return false;
+                else {
+                    Toast.makeText(Home.this, "Added to favorites", Toast.LENGTH_SHORT).show();
+                    User.addToFavorites(marker.getTitle());
+                    heartImg.setImageResource(R.drawable.ic_favorite_black_24dp);
+                }
             }
         });
+        builder.setView(myView);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+
+        return false;
     }
+
+
+
 
     private void initMap() {
         Log.d(TAG, "initMap: initializint map");
@@ -150,11 +185,14 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
 
         assert mapFragment != null;
         mapFragment.getMapAsync(Home.this);
+
+
     }
 
     private void moveCamera(LatLng latLng, float zoom) {
         Log.d(TAG, "moveCamera: moving camera to: lat:" + latLng.latitude + ", lng:" + latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+
     }
 
 
@@ -184,7 +222,6 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         Log.d(TAG, "onRequestPermissionsResult: called.");
         mLocationPermissionGranted = false;
-
         switch (requestCode) {
             case LOCATION_PERMISSION_REQUEST_CODE: {
                 if (grantResults.length > 0) {
@@ -202,7 +239,22 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback {
                 }
             }
         }
+
     }
+    /*
+    public void ShowPopup(){
+        dialogBox.setContentView(R.layout.popup_favorite);
+        closePopup = (ImageView) dialogBox.findViewById(R.id.closePopupImg);
+        favoriteBtn = (Button) dialogBox.findViewById(R.id.btnFavorite);
+        titleTv = (TextView) dialogBox.findViewById(R.id.titleTv);
+
+        closePopup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                dialogBox.dismiss();
+            }
+        });
+    }*/
 
 
 }

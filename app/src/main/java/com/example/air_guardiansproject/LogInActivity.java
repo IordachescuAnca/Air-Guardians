@@ -83,6 +83,8 @@ public class LogInActivity extends AppCompatActivity {
                             }
                             System.out.println(accountExists);
                             if(accountExists){
+                                User.user_id=res.getInt("id_client");
+                                User.getFavorites();
                                 Toast.makeText(getApplicationContext(), "Successfully logged in!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LogInActivity.this, Home.class);
                                 startActivity(intent);

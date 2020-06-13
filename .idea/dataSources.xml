@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MDSdb" uuid="4b7f2bda-457f-4fe4-8b80-45558a975ac2">
-      <driver-ref>mysql</driver-ref>
+    <data-source source="LOCAL" name="MDS" uuid="f3be5483-700c-401e-981d-ec4ff82f0f4e">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://mds-mysql2020.mysql.database.azure.com:3306</jdbc-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
