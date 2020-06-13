@@ -13,6 +13,13 @@
             android:layout_height="match_parent"
             android:background="@drawable/back_other_activities"
             android:layout_above="@id/bottom_navigation">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:scrollbars="vertical"/>
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

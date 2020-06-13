@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -99,6 +100,29 @@ public class User {
    e.printStackTrace();
   }
 
+ }
+
+ public static List<Integer> getCities(){
+   List<Integer> idCities = new ArrayList<Integer>();
+   try{
+    Class.forName("com.mysql.jdbc.Driver");
+    String url = "jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb";
+    String user = "mdsproject@mds-project";
+    String pass = "qwer1234!@#$";
+    Connection dbConn = getConnection(url, user, pass);
+
+    Statement statement = (Statement)dbConn.createStatement();
+    ResultSet res = statement.executeQuery("Select * from favorites WHERE id_client=" + user_id);
+    while (res.next()){
+     Integer id = res.getInt("oras_id");
+     idCities.add(id);
+    }
+   } catch (ClassNotFoundException e) {
+    e.printStackTrace();
+   } catch (SQLException throwables) {
+    throwables.printStackTrace();
+   }
+   return idCities;
  }
 
 }

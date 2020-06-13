@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
     public void setInfo(Double latitudee, Double longitudee, Integer index) {
         //System.out.println("DA");
 
-        String token  = new String("25823674605b4305b50052b7da10cc04");
+        String token  = new String("4c85b448dd4241eebdf9f5ef929423d2");
         requestQueue = Volley.newRequestQueue(this);
         StringBuilder sb = new StringBuilder("https://api.breezometer.com/air-quality/v2/current-conditions?lat=");
         sb.append(latitudee);
@@ -218,7 +218,15 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject rou_calitateaerObject = indexesObject.getJSONObject("baqi");
                 Double aqiValue = rou_calitateaerObject.getDouble("aqi");
                 //System.out.println("aqi e: " + aqiValue.toString());
-                String categoryValue = rou_calitateaerObject.getString("category");
+                String categoryValue;
+                if (aqiValue <= 25)
+                    categoryValue = new String("Excellent air quality");
+                else if(aqiValue <= 50)
+                    categoryValue = new String("Good air quality");
+                else if(aqiValue <= 75)
+                    categoryValue = new String("Medium air quality");
+                else
+                    categoryValue = new String("Bad air quality");
 
                 JSONObject pollutantsObject = dataObject.getJSONObject("pollutants");
                 JSONObject coObject = pollutantsObject.getJSONObject("co");
