@@ -18,6 +18,29 @@ be found in the air help people decide when to stay indoors.
 
 We used Trello in order to manage and organise our tasks during the development of the application. This [link](https://trello.com/b/UBPFRoEN/air-guardian-development) redirects to our backlog creation.
 
+## User stories
+
+User stories are short, simple descriptions of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system. 
+
+Our team has come up with 10 user stories:
+
+1. As a environmentalist, I want to see all polluted cities in order to help reduce air pollution there.
+2. As a parent, I want to know the time of the day when air pollution is lowest so that I can go outside and play outdoor activities with my children.
+3. As a athlete, I want to know when the ozone value overcomes its thresholds so that training outside in such enivronment can cause me  bronchoconstriction.
+4. As a traveler, I want to see the air pollution of cities I often visit so that I can be sure if I need a mask. 
+5. As a customer, I want to see the air quality index of all cities so that I can decide the least polluted city to move.
+6. As a customer, I want to choose some locations on map so that I can see quickly information about air quality in those regions.
+7. As a customer, I want to receive air quality based health recommendations so that I can organize my day for maximum productivity.
+
+
+## UML Use Case Diagram
+
+![alt text](https://github.com/IordachescuAnca/Air-Guardians/blob/master/uml/uml.jpg)
+
+## Building tool
+
+Our project was developed in IntellIJ IDEA and the building tool used is Gradle, which is an open-source build automation tool which is used to automate building, testing, deployment etc. "Build.grade" are scripts where one can automate the tasks.
+
 
 
 ## Memes: We do love them :laughing:
