@@ -87,7 +87,7 @@ public class User {
     res.next();
     int oras_id = res.getInt("oras_id");
 
-    stmt.execute("delete from favorites where user_id="+user_id+" and oras_id="+oras_id+")");
+    stmt.execute("delete from favorites where id_client="+user_id+" and oras_id="+oras_id);
 
    } catch (SQLException e) {
     e.printStackTrace();
