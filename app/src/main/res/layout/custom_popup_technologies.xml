@@ -4,17 +4,55 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="350dp"
         android:layout_height="475dp"
-        android:background="@color/back_popup"
+        android:background="@drawable/popup_background"
         android:layout_gravity="center"
+        android:padding="5pt"
 >
 
  <TextView
-         android:text="Technologies we used"
-         android:layout_width="160dp"
-         android:layout_height="32dp" android:id="@+id/textView2"
-         android:layout_marginTop="36dp"
-         app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-         android:layout_marginLeft="92dp" android:layout_marginStart="92dp"/>
+         android:text="TECHNOLOGIES THAT WE USED"
+         android:layout_width="288dp"
+         android:layout_height="23dp"
+         android:id="@+id/textView2"
+         android:textSize="50px"
+         android:textStyle="bold"
+         android:layout_marginTop="35dp"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         android:layout_marginLeft="112dp"
+         android:layout_marginStart="112dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginEnd="106dp"
+         android:layout_marginRight="106dp"
+         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+ <TextView
+         android:text="Air pollution affects all areas of the world, with the population in urban areas
+particularly exposed to high concentrations of pollutans that even if you can't see,
+they can still hurt you and produce damage to your health.
+This is where technology comes in.
+In order to raise awareness of the air quality problem, we designed an application
+that provides access to data about local air quality using BreezoMeter API which
+helped us extract features transmitted by sensors in different cities, using Google
+API to display all locations we have air quality information about."
+         app:autoSizeTextType="uniform"
+         android:layout_width="282dp"
+         android:layout_height="172dp" android:id="@+id/textView10"
+         android:layout_marginTop="28dp"
+         app:layout_constraintTop_toBottomOf="@+id/textView2"
+         app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="24dp"
+         android:layout_marginStart="24dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+         android:layout_marginRight="24dp"/>
+
+ <ImageView
+         android:layout_alignParentRight="true"
+         app:srcCompat="@drawable/technologies"
+         android:layout_width="245dp"
+         android:layout_height="114dp" android:layout_marginTop="28dp"
+         app:layout_constraintTop_toBottomOf="@+id/textView10" app:layout_constraintStart_toStartOf="parent"
+         android:layout_marginLeft="96dp" android:layout_marginStart="96dp" app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginEnd="96dp" android:layout_marginRight="96dp" app:layout_constraintHorizontal_bias="0.494">
+ </ImageView>
  <!--   <TextView
             android:id="@+id/txtclose_technologies"
             android:layout_width="30dp"

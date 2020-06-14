@@ -8,4 +8,6 @@
     <color name="white">#FFFFFF</color>
     <color name="blue_login">#274FBC</color>
     <color name="back_popup">#04A7D9</color>
+    <color name="start_color_popup">#84fab0</color>
+    <color name="end_color_popup">#8fd3f4</color>
 </resources>

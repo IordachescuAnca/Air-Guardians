@@ -132,7 +132,7 @@
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="55dp"
     >
 
         <LinearLayout
@@ -166,7 +166,7 @@
             app:cardElevation="6dp"
             app:cardCornerRadius="12dp"
             android:layout_margin="12dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="55dp"
     >
 
     <LinearLayout
@@ -177,16 +177,17 @@
             android:layout_height="match_parent">
 
         <ImageView
-                app:srcCompat="@drawable/ic_android_black_24dp"
+                app:srcCompat="@drawable/info_logo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
         <TextView
                 android:layout_marginTop="12dp"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:text="Information"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textAlignment="center"
+                android:text="About Pollutants"
+                android:layout_width="104dp"
+                android:layout_height="40dp" android:gravity="center_horizontal"/>
 
     </LinearLayout>
     </androidx.cardview.widget.CardView>
