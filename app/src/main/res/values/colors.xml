@@ -10,4 +10,6 @@
     <color name="back_popup">#04A7D9</color>
     <color name="start_color_popup">#84fab0</color>
     <color name="end_color_popup">#8fd3f4</color>
+    <color name="start_box_fav">#FFFFFF</color>
+    <color name="end_box_fav">#cfd9df</color>
 </resources>

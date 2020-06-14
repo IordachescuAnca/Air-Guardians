@@ -224,13 +224,13 @@ public class MainActivity extends AppCompatActivity {
                 //System.out.println("aqi e: " + aqiValue.toString());
                 String categoryValue;
                 if (aqiValue <= 25)
-                    categoryValue = new String("Excellent air quality");
+                    categoryValue = new String("Excellent Air Quality");
                 else if(aqiValue <= 50)
-                    categoryValue = new String("Good air quality");
+                    categoryValue = new String("Good Air Quality");
                 else if(aqiValue <= 75)
-                    categoryValue = new String("Medium air quality");
+                    categoryValue = new String("Medium Air Quality");
                 else
-                    categoryValue = new String("Bad air quality");
+                    categoryValue = new String("Low Air Quality");
 
                 JSONObject pollutantsObject = dataObject.getJSONObject("pollutants");
                 JSONObject coObject = pollutantsObject.getJSONObject("co");
