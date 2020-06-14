@@ -1,6 +1,7 @@
 package com.example.air_guardiansproject;
 
 //IMPORTURI API
+
 import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.*;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // ca sa nu primim exceptie la requesturi pe retea din threadul principal
+        // ca sa nu primim exceptie la requesturi pe retea din threadul principal
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         requestQueue = Volley.newRequestQueue(this);
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 List<Double> listLongitude = getAllLongitude();
                 List<String> listCities = getAllCities();
                 Integer count = listCities.size();
-                for(Integer i = 0; i < count; i++){
+                for (Integer i = 0; i < count; i++) {
                     Double latitude = listLatitudes.get(i);
                     Double longitude = listLongitude.get(i);
                     String city = listCities.get(i);
@@ -74,9 +75,11 @@ public class MainActivity extends AppCompatActivity {
                     //System.out.println(longitude);
                     setInfo(latitude, longitude, i + 1);
                 }
-            };
+            }
+
+            ;
         };
-        t.scheduleAtFixedRate(tt,new Date(),1000 * 60 * 60);
+        t.scheduleAtFixedRate(tt, new Date(), 1000 * 60 * 60);
 
         textRegister = (TextView) findViewById(R.id.register);
         textRegister.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (isServicesOK()) {
+                    User.getFavorites();
                     Intent intent = new Intent(MainActivity.this, Home.class);
                     startActivity(intent);
                 }
@@ -128,18 +132,18 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public List<String> getAllCities(){
+    public List<String> getAllCities() {
         List<String> cities = new ArrayList<>();
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb";
             String user = "mdsproject@mds-project";
             String pass = "qwer1234!@#$";
             Connection dbConn = getConnection(url, user, pass);
 
-            Statement statement = (Statement)dbConn.createStatement();
+            Statement statement = (Statement) dbConn.createStatement();
             ResultSet res = statement.executeQuery("Select * from oras_date");
-            while (res.next()){
+            while (res.next()) {
                 String city = res.getString("Oras");
                 cities.add(city);
             }
@@ -151,18 +155,18 @@ public class MainActivity extends AppCompatActivity {
         return cities;
     }
 
-    public List<Double> getAllLongitude(){
+    public List<Double> getAllLongitude() {
         List<Double> longitudes = new ArrayList<>();
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb";
             String user = "mdsproject@mds-project";
             String pass = "qwer1234!@#$";
             Connection dbConn = getConnection(url, user, pass);
 
-            Statement statement = (Statement)dbConn.createStatement();
+            Statement statement = (Statement) dbConn.createStatement();
             ResultSet res = statement.executeQuery("Select * from oras_date");
-            while (res.next()){
+            while (res.next()) {
                 Double longitude = res.getDouble("Longitudine");
                 longitudes.add(longitude);
             }
@@ -174,18 +178,18 @@ public class MainActivity extends AppCompatActivity {
         return longitudes;
     }
 
-    public List<Double> getAllLatitude(){
+    public List<Double> getAllLatitude() {
         List<Double> latitudes = new ArrayList<>();
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb";
             String user = "mdsproject@mds-project";
             String pass = "qwer1234!@#$";
             Connection dbConn = getConnection(url, user, pass);
 
-            Statement statement = (Statement)dbConn.createStatement();
+            Statement statement = (Statement) dbConn.createStatement();
             ResultSet res = statement.executeQuery("Select * from oras_date");
-            while (res.next()){
+            while (res.next()) {
                 Double latitude = res.getDouble("Latitudine");
                 latitudes.add(latitude);
             }
@@ -265,15 +269,15 @@ public class MainActivity extends AppCompatActivity {
                     preparedStmt.setDouble(5, o3Value);
                     preparedStmt.setDouble(6, pm10Value);
                     preparedStmt.setDouble(7, pm25Value);
-                    preparedStmt.setInt(8,index);
+                    preparedStmt.setInt(8, index);
                     preparedStmt.executeUpdate();
 
                     dbConn.close();
-                }catch (ClassNotFoundException | SQLException e){
+                } catch (ClassNotFoundException | SQLException e) {
                     e.printStackTrace();
                 }
 
-            } catch (JSONException j ) {
+            } catch (JSONException j) {
                 j.printStackTrace();
             }
         }, error -> {

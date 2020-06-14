@@ -32,7 +32,7 @@ public class LogInActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        registerText = (TextView)findViewById(R.id.text_register);
+        registerText = (TextView) findViewById(R.id.text_register);
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +41,7 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-        backButton = (Button)findViewById(R.id.backButton);
+        backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,20 +50,19 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
-        toHomeButton = (Button)findViewById(R.id.button);
+        toHomeButton = (Button) findViewById(R.id.button);
         toHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                email = (EditText)findViewById(R.id.email_login);
-                password = (EditText)findViewById(R.id.password_login);
+                email = (EditText) findViewById(R.id.email_login);
+                password = (EditText) findViewById(R.id.password_login);
 
                 String dataEmail = email.getText().toString();
                 String dataPassword = password.getText().toString();
 
-                if(dataEmail.equals("") || dataPassword.equals("")){
+                if (dataEmail.equals("") || dataPassword.equals("")) {
                     Toast.makeText(getApplicationContext(), "No empty box allowed!", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
                         String url = "jdbc:mysql://mds-project.mysql.database.azure.com:3306/mydb";
@@ -76,24 +75,22 @@ public class LogInActivity extends AppCompatActivity {
                             Statement stmt = (Statement) dbConn.createStatement();
                             ResultSet res = stmt.executeQuery("Select * from clients");
                             while (res.next()) {
-                                if(res.getString("email_client").equals(dataEmail) && res.getString("password_client").equals(dataPassword)){
+                                if (res.getString("email_client").equals(dataEmail) && res.getString("password_client").equals(dataPassword)) {
                                     accountExists = true;
                                     break;
                                 }
                             }
                             System.out.println(accountExists);
-                            if(accountExists){
-                                User.user_id=res.getInt("id_client");
+                            if (accountExists) {
+                                User.user_id = res.getInt("id_client");
                                 User.getFavorites();
                                 Toast.makeText(getApplicationContext(), "Successfully logged in!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LogInActivity.this, Home.class);
                                 startActivity(intent);
-                            }
-                            else{
+                            } else {
                                 Toast.makeText(getApplicationContext(), "The email/password is incorrect!", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        catch(SQLException e){
+                        } catch (SQLException e) {
                             e.printStackTrace();
                         }
 

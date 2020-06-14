@@ -55,7 +55,6 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback, Googl
     private Marker mMarker;
 
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         Toast.makeText(this, "Map is ready", Toast.LENGTH_SHORT).show();
@@ -63,7 +62,6 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback, Googl
         mMap = googleMap;
         mMap.setOnMarkerClickListener(this);
         moveCamera(coordRomania, DEFAULT_ZOOM);
-
 
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -141,18 +139,18 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback, Googl
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.info:
                         startActivity(new Intent(getApplicationContext(), InformationActivity2.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.favourites:
                         startActivity(new Intent(getApplicationContext(), FavouritesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.exit:
                         startActivity(new Intent(getApplicationContext(), LogInActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.nav_home1:
                         return true;
@@ -176,22 +174,20 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback, Googl
         textOras = myView.findViewById(R.id.titleTv);
 
         textOras.setText(marker.getTitle());
-        if(User.favorites.contains(marker.getTitle())) {
+        if (User.favorites.contains(marker.getTitle())) {
             heartImg.setImageResource(R.drawable.ic_favorite_black_24dp);
-        }
-        else{
+        } else {
             heartImg.setImageResource(R.drawable.ic_favorite_border_black_24dp);
         }
 
         heartImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(User.favorites.contains(marker.getTitle())) {
+                if (User.favorites.contains(marker.getTitle())) {
                     Toast.makeText(Home.this, "Removed from favorites", Toast.LENGTH_SHORT).show();
                     User.removeFromFavorites(marker.getTitle());
                     heartImg.setImageResource(R.drawable.ic_favorite_border_black_24dp);
-                }
-                else {
+                } else {
                     Toast.makeText(Home.this, "Added to favorites", Toast.LENGTH_SHORT).show();
                     User.addToFavorites(marker.getTitle());
                     heartImg.setImageResource(R.drawable.ic_favorite_black_24dp);
@@ -205,8 +201,6 @@ public class Home extends AppCompatActivity implements OnMapReadyCallback, Googl
 
         return false;
     }
-
-
 
 
     private void initMap() {
