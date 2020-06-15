@@ -30,7 +30,7 @@
           app:itemTextColor="@drawable/selector"
           app:itemIconTint="@drawable/selector"
           app:menu="@menu/bottom_navigation_bar"
-          android:layout_alignParentBottom="true">
+          android:layout_alignParentBottom="true" android:layout_marginBottom="0dp">
   </com.google.android.material.bottomnavigation.BottomNavigationView>
   <!--  <FrameLayout
             android:id="@+id/fragment_container"

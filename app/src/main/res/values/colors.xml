@@ -12,4 +12,6 @@
     <color name="end_color_popup">#8fd3f4</color>
     <color name="start_box_fav">#FFFFFF</color>
     <color name="end_box_fav">#cfd9df</color>
+    <color name="start_box_city">#d4fc79</color>
+    <color name="end_box_city">#96e6a1</color>
 </resources>
