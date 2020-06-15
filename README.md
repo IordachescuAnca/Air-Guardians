@@ -24,14 +24,16 @@ User stories are short, simple descriptions of a feature told from the perspecti
 
 Our team has come up with 10 user stories:
 
-1. As a environmentalist, I want to see all polluted cities in order to help reduce air pollution there.
-2. As a parent, I want to know the time of the day when air pollution is lowest so that I can go outside and play outdoor activities with my children.
-3. As a athlete, I want to know when the ozone value overcomes its thresholds so that training outside in such enivronment can cause me  bronchoconstriction.
-4. As a traveler, I want to see the air pollution of cities I often visit so that I can be sure if I need a mask. 
-5. As a customer, I want to see the air quality index of all cities so that I can decide the least polluted city to move.
-6. As a customer, I want to choose some locations on map so that I can see quickly information about air quality in those regions.
-7. As a customer, I want to receive air quality based health recommendations so that I can organize my day for maximum productivity.
-
+1. As an environmentalist, I want to see all polluted cities in order to help reduce air pollution there.
+2. As an environmentalist I want to be informed about what trees I can plant in the polluted areas.
+3. As a parent, I want to know the time of the day when air pollution is lowest so that I can go outside and play outdoor activities with my children.
+4. As an athlete, I want to know when the ozone value overcomes its thresholds so that training outside in such enivronment can cause me  bronchoconstriction.
+5. As a traveler, I want to see the air pollution of cities I often visit so that I can be sure if I need a mask. 
+6. As a customer, I want to see the air quality index of all cities so that I can decide the least polluted city to move.
+7. As a customer, I want to choose some locations on map so that I can see quickly information about air quality in those regions.
+8. As a customer, I want to receive air quality based health recommendations so that I can organize my day for maximum productivity.
+9. As a customer I want to be notified if in any of my favourites cities the pollution is too high.
+10. As a customer I want to receive health recommendations based on the level of the pollution.
 
 ## UML Use Case Diagram
 
@@ -41,7 +43,13 @@ Our team has come up with 10 user stories:
 
 Our project was developed in IntellIJ IDEA and the building tool used is Gradle, which is an open-source build automation tool which is used to automate building, testing, deployment etc. "Build.grade" are scripts where one can automate the tasks.
 
+## Bug reporting
 
+We have encountered the following bugs:
+
+1. The undo operation performed by the user to remove cities from favourites had no effect. Solution: Fixing the sql query that deletes a city from the user's list of favourites cities. To see the fixing, click [here](https://github.com/IordachescuAnca/Air-Guardians/commit/0cc49fa528b6f8ab0f4f3473bbfb84320e38330e).
+
+2. In the Information Activity the navigation bar was not placed on the bottom of the activity.Solution: We tried to put it in a Linear Layout outside the Linear Layout that contains the other elements but it was covered, so we decided to increase the margin of the other elements. To see the fixing, click [here](https://github.com/IordachescuAnca/Air-Guardians/commit/4f6d63f3afcce84c8308b7f8c9b79b4cf0659f90).
 
 ## Memes: We do love them :laughing:
 ![Meme 2](https://github.com/IordachescuAnca/Air-Guardians/blob/master/Memes/Meme-2.jpg)
