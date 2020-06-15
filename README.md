@@ -14,6 +14,10 @@ It is our belief that monitoring the air quality of the places protects people's
 and minimize exposure to outdoor air pollution as daily information about pollutants that can
 be found in the air help people decide when to stay indoors.
 
+## Demo
+
+The demo of the application can be found [here](https://www.youtube.com/watch?v=ubRtI4TTBhE&feature=youtu.be).
+
 ## Trello
 
 We used Trello in order to manage and organise our tasks during the development of the application. This [link](https://trello.com/b/UBPFRoEN/air-guardian-development) redirects to our backlog creation.
@@ -32,7 +36,7 @@ Our team has come up with 10 user stories:
 6. As a customer, I want to see the air quality index of all cities so that I can decide the least polluted city to move.
 7. As a customer, I want to choose some locations on map so that I can see quickly information about air quality in those regions.
 8. As a customer, I want to receive air quality based health recommendations so that I can organize my day for maximum productivity.
-9. As a customer I want to be notified if in any of my favourites cities the pollution is too high.
+9. As a customer I want a detailed situation of the pollution in a specified area (the pollutants and their value).
 10. As a customer I want to receive health recommendations based on the level of the pollution.
 
 ## UML Use Case Diagram
@@ -50,6 +54,20 @@ We have encountered the following bugs:
 1. The undo operation performed by the user to remove cities from favourites had no effect. Solution: Fixing the sql query that deletes a city from the user's list of favourites cities. To see the fixing, click [here](https://github.com/IordachescuAnca/Air-Guardians/commit/0cc49fa528b6f8ab0f4f3473bbfb84320e38330e).
 
 2. In the Information Activity the navigation bar was not placed on the bottom of the activity.Solution: We tried to put it in a Linear Layout outside the Linear Layout that contains the other elements but it was covered, so we decided to increase the margin of the other elements. To see the fixing, click [here](https://github.com/IordachescuAnca/Air-Guardians/commit/4f6d63f3afcce84c8308b7f8c9b79b4cf0659f90).
+
+## Automation Testing
+
+For testing we have created 5 classes for the following activities: MainActivity, LogInActivity, Register, InformationActivity and Home.
+Each class contains methods that check the behaviour of the application when certain I/O actions are performed, detecting if there is any action that does not perform as expected.
+
+We have used Espresso which is a testing framework for Android in order to simulate the user's activity while using the application(clicking on buttons, completing the text fields and so on). While user is performing different actions, if everything is implemented correctly, the application should behave normally(for example: after loggin in successfully, the next page that have to appear is Home activity).
+
+The basis of our tests consists of asserts which are functions that throws an exception when their parameters has another values than the ones we expect. For example, assertNotNull(Null) throws an exception.
+
+After finishing all tests, it is displayed the number of tests that the application has runned on successfully and what problems have occurred on tests that the application has failed on.
+
+![Unit Testing](https://github.com/IordachescuAnca/Air-Guardians/blob/master/unit%20tests.png)
+
 
 ## Memes: We do love them :laughing:
 ![Meme 2](https://github.com/IordachescuAnca/Air-Guardians/blob/master/Memes/Meme-2.jpg)
