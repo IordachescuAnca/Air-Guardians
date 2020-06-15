@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"/>
         <ImageView
                 android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/ic_android_black_24dp"
+                app:srcCompat="@drawable/air_logo"
                 android:layout_width="62dp"
                 android:layout_height="62dp">
 

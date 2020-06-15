@@ -99,18 +99,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button = (Button) findViewById(R.id.button_map);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isServicesOK()) {
-                    User.getFavorites();
-                    Intent intent = new Intent(MainActivity.this, Home.class);
-                    startActivity(intent);
-                }
-            }
-        });
-
     }
 
     public boolean isServicesOK() {
