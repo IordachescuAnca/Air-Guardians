@@ -11,6 +11,8 @@
 
 
     <EditText
+            android:padding="3dp"
+            android:hint="     Email"
             android:layout_width="233dp"
             android:layout_height="50dp"
             android:inputType="textEmailAddress"
@@ -27,6 +29,8 @@
             tools:ignore="LabelFor" android:layout_alignParentStart="true" android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"/>
     <EditText
+            android:padding="3dp"
+            android:hint="     Password"
             android:layout_width="233dp"
             android:layout_height="50dp"
             android:inputType="textPassword"

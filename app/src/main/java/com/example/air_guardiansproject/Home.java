@@ -34,7 +34,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
 import org.w3c.dom.Text;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
